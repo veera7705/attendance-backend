@@ -149,16 +149,16 @@ await page.waitForSelector(".x-column-inner", {
 
         return normalized;
     } catch (error) {
-        if (error instanceof AttendanceFetchError) throw error;
+    if (error instanceof AttendanceFetchError) throw error;
 
-        if (error.name === "TimeoutError") {
-            throw new AttendanceFetchError(
-                "The portal took too long to respond. Please try again.",
-                "TIMEOUT"
-            );
-        }
+    if (error.name === "TimeoutError") {
+        throw new AttendanceFetchError(
+            "The portal took too long to respond. Please try again.",
+            "TIMEOUT"
+        );
+    }
 
-           console.error("REAL ERROR:");
+    console.error("REAL ERROR:");
     console.error(error);
     console.error(error.stack);
 
@@ -168,5 +168,7 @@ await page.waitForSelector(".x-column-inner", {
         await browser.close();
     }
 }
+}
+
 module.exports = login;
 module.exports.AttendanceFetchError = AttendanceFetchError;
