@@ -69,6 +69,8 @@ app.post("/api/attendance", attendanceLimiter, async (req, res) => {
         const attendance = await login(registerNo.trim(), password);
         res.json({ success: true, attendance });
     } catch (error) {
+        console.error("PLAYWRIGHT ERROR:", error);
+        console.error(error.stack);
         if (error instanceof AttendanceFetchError) {
             const statusByCode = {
                 INVALID_INPUT: 400,
