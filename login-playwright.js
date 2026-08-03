@@ -34,10 +34,14 @@ async function login(registerNo, password) {
     let browser;
 
     try {
-        browser = await chromium.launch({
-            headless: config.headless,
-            slowMo: config.headless ? 0 : 200
-        });
+       browser = await chromium.launch({
+       headless: true,
+       args: [
+           "--no-sandbox",
+           "--disable-setuid-sandbox",
+           "--disable-dev-shm-usage"
+        ]
+     });
 
         const page = await browser.newPage();
         page.setDefaultTimeout(config.navTimeoutMs);
@@ -154,9 +158,11 @@ await page.waitForSelector(".x-column-inner", {
             );
         }
 
-        throw new AttendanceFetchError(
-            "Could not reach the attendance portal.",
-            "SITE_UNAVAILABLE"
+        console.error("REAL ERROR:");
+        console.error(error);
+        console.error(error.stack);
+
+throw error;
         );
     } finally {
         if (browser) await browser.close();
