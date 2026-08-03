@@ -1,7 +1,7 @@
 {
   "name": "attendancepro-backend",
   "version": "2.0.0",
-  "description": "Attendance Vision backend - scrapes MITS IMS attendance via Playwright and serves it over a secured REST API.",
+  "description": "Attendance Vision backend",
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
@@ -9,13 +9,6 @@
     "dev": "node server.js",
     "postinstall": "playwright install chromium"
   },
-  "keywords": [
-    "attendance",
-    "playwright",
-    "mits"
-  ],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
