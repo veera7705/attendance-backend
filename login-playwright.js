@@ -35,7 +35,7 @@ async function login(registerNo, password) {
 
     try {
        browser = await chromium.launch({
-    headless: false,
+    headless: true,
     args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
