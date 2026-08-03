@@ -6,6 +6,9 @@ COPY package*.json ./
 
 RUN npm install
 
+# Install Playwright browsers inside the image
+RUN npx playwright install chromium
+
 COPY . .
 
 EXPOSE 5000
