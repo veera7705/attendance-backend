@@ -158,16 +158,15 @@ await page.waitForSelector(".x-column-inner", {
             );
         }
 
-        console.error("REAL ERROR:");
-        console.error(error);
-        console.error(error.stack);
+           console.error("REAL ERROR:");
+    console.error(error);
+    console.error(error.stack);
 
-throw error;
-        );
-    } finally {
-        if (browser) await browser.close();
+    throw error;
+} finally {
+    if (browser) {
+        await browser.close();
     }
 }
-
 module.exports = login;
 module.exports.AttendanceFetchError = AttendanceFetchError;
